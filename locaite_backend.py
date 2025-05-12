@@ -12,7 +12,7 @@ app = Flask(__name__)
 logger = logging.getLogger('locaite_logger')
 logger.setLevel(logging.DEBUG)
 
-handler = logging.FileHandler('locaite_output.log')
+handler = logging.FileHandler(LOGFILE_PATH)
 formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s', datefmt='%Y-%m-%d %H:%M:%S')
 handler.setFormatter(formatter)
 logger.addHandler(handler)

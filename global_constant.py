@@ -7,7 +7,8 @@ PUT_TRAINING_STATUS = "/api/service/crowd/training/status"
 POST_PRESUBMIT_RESULT = "/api/service/crowd/training/presubmit"
 POST_RESULT = "/api/service/crowd/training/finish"
 
-TRAINING_DATA_PATH = "./data"
+TRAINING_DATA_PATH = "../data"
+LOGFILE_PATH = '../locaite_output.log'
 
 
 class STATUS:
