@@ -51,7 +51,7 @@ def start_training():
             return {"code" : 500, "message" : str(e)}, 500
     
     # Download training data
-    if (k := is_missing_keys(data, ["id", "files", "fromDate", "toDate", "dataUrl"])):
+    if (k := is_missing_keys(data, ["id", "type", "mapId", "expireAt", "dataUrl"])):
         return {'code' : 400, 'message': f"Missing required data: {', '.join(k)}"}, 400
     try: 
         response = requests.get(data["dataUrl"])
