@@ -67,8 +67,6 @@ def start_training():
 
     try:
         shutil.unpack_archive(f'{TRAINING_DATA_PATH}/{data["id"]}.zip', f'{TRAINING_DATA_PATH}/{data["id"]}', 'zip')
-        if ( k := is_missing_keys(os.listdir(f'{TRAINING_DATA_PATH}/{data["id"]}'), data["files"])):
-            return {'code' : 400, 'message': f"Missing files: {', '.join(k)}"}, 400
         # TODO: Replace with actual model training
         # threading.Thread(target=train_model, args=(f'./{data["id"]}.zip')).start()
         logger.info(f"Created data: {data["id"]}")
