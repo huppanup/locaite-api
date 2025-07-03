@@ -6,6 +6,7 @@ from typing import Dict, Any
 import os
 
 from global_constant import *
+from train_process import train_process
 
 app = Flask(__name__)
 
@@ -67,8 +68,9 @@ def start_training():
 
     try:
         shutil.unpack_archive(f'{TRAINING_DATA_PATH}/{data["id"]}.zip', f'{TRAINING_DATA_PATH}/{data["id"]}', 'zip')
-        # TODO: Replace with actual model training
-        # threading.Thread(target=train_model, args=(f'./{data["id"]}.zip')).start()
+        # DONE: Replace with actual model training
+        os.mkdir(f'{OUTPUT_DATA_PATH}/{data["id"]}')
+        threading.Thread(target=train_process, args=(f'{TRAINING_DATA_PATH}/{data["id"]}', f'{OUTPUT_DATA_PATH}/{data["id"]}')).start()
         logger.info(f"Created data: {data["id"]}")
         return {"code":201,'message': "Training data created."}, 201
     finally: 
